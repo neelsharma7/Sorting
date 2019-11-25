@@ -1,0 +1,32 @@
+//Bubble Sort (Best case complexity = n & Worst case complexity = n^2)
+/*
+'a' refers to the array
+'b' refers to the size of array 'a'
+'c' & 'd' are loop variables
+*/
+int bubble(int *a,int b)
+{
+int c,d;
+for(c=0;c<b-1;c++) for(d=0;d<b-c-1;d++) if(a[d]>a[d+1])
+{
+a[d]=a[d]+a[d+1];
+a[d+1]=a[d]-a[d+1];
+a[d]=a[d]-a[d+1];
+}
+}
+//Additional stuff
+/*
+#include<stdio.h>
+int bubble(int *a,int b);
+int main()
+{
+int a[100],b,c;
+scanf("%d",&b);
+for(c=0;c<b;c++) scanf("%d",&a[c]);
+printf("Before sorting: ");
+for(c=0;c<b;c++) printf("%d, ",a[c]);
+bubble(a,b);
+printf("\nAfter sorting: ");
+for(c=0;c<b;c++) printf("%d, ",a[c]);
+}
+*/
