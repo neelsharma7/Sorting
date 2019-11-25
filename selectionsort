@@ -1,0 +1,36 @@
+//SELECTION SORT (Best case complexity = n & Worst complexity = n square)
+/*
+'a' refers to the array
+'b' refers to the size of array 'a'
+'c' & 'd' are loop variables
+'e' refers to the minimum index
+'f' helps as a temporary variable for swapping with third variable
+*/
+int select(int *a,int b)
+{
+int c,d,e=0,f;
+for(c=0;c<b-1;c++) 
+{
+e=c;
+for(d=c+1;d<b;d++) if(a[d]<a[e]) e=d;
+f=a[c];
+a[c]=a[e];
+a[e]=f;
+}
+}
+//Additional stuff
+/*
+#include<stdio.h>
+int select(int *a,int b);
+int main()
+{
+int a[100],b,c;
+scanf("%d",&b);
+for(c=0;c<b;c++) scanf("%d",&a[c]);
+printf("Before sorting: ");
+for(c=0;c<b;c++) printf("%d, ",a[c]);
+select(a,b);
+printf("\nAfter sorting: ");
+for(c=0;c<b;c++) printf("%d, ",a[c]);
+}
+*/
