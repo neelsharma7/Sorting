@@ -1,0 +1,58 @@
+//Merge Sort (Best case complexity = n*log(n) & Worst complexity = n*log(n))
+/*
+'a' refers to the array
+'b' refers to the size of array 'a'
+'c' , 'd' & 'e' are loop variables
+'l' refers to the minimum index
+'r' refers to the maximum index
+'m' refers to the middle index
+'L1' & 'L2' are temporary arrays
+*/
+void merge(int *a,int l,int m,int r) 
+{ 
+	int c, d, e; 
+	int n1=m-l+1; 
+	int n2=r-m;
+	int L[n1], R[n2];
+	for(c=0;c<n1;c++) L[c]=a[l+c]; 
+	for(d=0;d<n2;d++) R[d] = a[m+1+d];
+	c=0; 
+	d=0; 
+	e=l; 
+	while (c<n1&&d<n2) 
+	{ 
+		if (L[c]<=R[d]) a[e++]=L[c++];
+		else a[e++] = R[d++];
+	} 
+	while(c<n1) a[e++]=L[c++];
+	while (d<n2) a[e++] = R[d++];
+} 
+void mergeSort(int *a,int l,int r) 
+{ 
+	if (l<r) 
+	{ 
+		int m=l+(r-l)/2;
+		mergeSort(a,l,m); 
+		mergeSort(a,m+1,r); 
+        merge(a,l,m,r); 
+	} 
+} 
+//Additional stuff
+/*
+#include<stdlib.h> 
+#include<stdio.h> 
+void merge(int a[],int l,int m,int r); 
+void mergeSort(int *a,int l,int r);
+int main() 
+{ 
+    int b,c;
+    scanf("%d",&b);
+    int a[b];
+    for(c=0;c<b;c++) scanf("%d",&a[c]);
+	printf("Before sorting: "); 
+	for(c=0;c<b;c++) printf("%d, ",a[c]);
+	mergeSort(a,0,b-1); 
+    printf("\nAfter sorting: "); 
+	for(c=0;c<b;c++) printf("%d, ",a[c]);
+} 
+*/
