@@ -1,0 +1,55 @@
+//Quick Sort (Best case complexity = n*log(n) & Worst case complexity = n^2)
+/*
+'a' refers to the array
+'b' refers to the size of array 'a'
+'c' , 'd' ,'i' , 'j' are loop variables
+'l' , 'm' & 'r' are the indexes of the starting and ending of the array
+'k' temporary variable for swapping 
+*/
+int quicksort(int *a,int l,int r)
+{
+    if (l<r)
+    {
+        int m=part(a,l,r);
+        quicksort(a,l,m-1);
+        quicksort(a,m+1,r);
+    }
+}
+int part(int a[],int l,int r)
+{
+    int n=a[r];  
+    int i,j,k;
+    i=(l-1);
+    for (j = l; j <= r- 1; j++)
+    {
+        if (a[j]<n)
+        {
+            i++;
+            k=a[i];
+            a[i]=a[j];
+            a[j]=k;
+        }
+    }
+            k=a[i+1];
+            a[i+1]=a[r];
+            a[r]=k;
+    return (i + 1);
+}
+//Additional stuff
+/*
+#include<stdio.h>
+int quicksort(int *a,int l,int r);
+int part(int *a,int l,int r);
+int main()
+{
+   int b,c;
+   scanf("%d",&b);
+   int a[b];
+   for(c=0;c<b;c++) scanf("%d",&a[c]);
+   printf("Before sorting: ");
+   for(c=0;c<b;c++) printf("%d, ",a[c]);
+   quicksort(a,0,b-1);
+   printf("\nAfter sorting: ");
+   for(c=0;c<b;c++) printf("%d, ",a[c]);
+}
+*/
